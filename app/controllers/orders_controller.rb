@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    UserMailer.checkout_email(@order.line_items, @order.total_cents, @order.id, current_user).deliver_now
   end
 
   def create
