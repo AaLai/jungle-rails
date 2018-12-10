@@ -2,6 +2,12 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+## Version 1.0.0
+  Basic program functionality in place for e-commerce app. Still a work in progress.
+
+## Screenshots
+!["Jungle Storefront"](https://github.com/AaLai/jungle-rails/blob/master/Jungle_storefront.png?raw=true)
+!["Jungle Cart"](https://github.com/AaLai/jungle-rails/blob/master/Jungle_cart.png?raw=true)
 
 ## Setup
 
@@ -26,3 +32,4 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
