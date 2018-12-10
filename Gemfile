@@ -47,6 +47,13 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
+group :test do
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'faker'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
