@@ -30,6 +30,8 @@ RSpec.describe Product, type: :model do
       expect(@product.errors).to include(:name)
     end
 
+# next two tests needs both price and price_cents nulled
+# otherwise ruby will work jump constraints
     it "is not valid without a price" do
       @product.price = nil
       @product.price_cents = nil
