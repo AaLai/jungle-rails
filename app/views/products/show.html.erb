@@ -25,27 +25,54 @@
         </dl>
       </div>
     </div>
-<br>
-    <div>
-      <%= form_for [@product, @review] do |form| %>
+    <br>
 
-        <div class="form-group">
-          <%= form.label :Rating %>
-          <%= form.select :rating, [[1],[2],[3],[4],[5]]%>
-        </div>
+    <% if current_user %>
+      <div class="panel panel-default items">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Your Rating</th>
+                <th>Your Review</th>
+                <th></th>
+              </tr>
+            </thead>
 
-        <div class="form-group">
-          <%= form.label :Review %>
-          <%= form.text_field :description, class: 'form-control' %>
-        </div>
+          <% if @user_review %>
+            <tbody>
+              <th>
+                <h4><%= @user_review.rating %></h4>
+              </th>
+              <th>
+                <%= @user_review.description %>
+              </th>
+              <th>
+                 <%= link_to "Delete", "/products/#{params[:id]}/reviews/#{@user_review.id}", class: 'btn btn-sm btn-danger', :method => :delete, data: { confirm: "Are you sure?" } %>
+              </th>
+          <% else %>
+            <%= form_for [@product, @review] do |form| %>
+              <tbody>
+                <th>
+                  <%= form.select :rating, [[1],[2],[3],[4],[5]]%>
+                </th>
 
-        <%= form.submit 'Add Review', class: 'btn btn-primary' %>
-      <% end %>
+                <th>
+                  <%= form.text_field :description, class: 'form-control' %>
+                </th>
+                <th>
+                  <%= form.hidden_field :product_id, value: params[:id] %>
+
+                  <%= form.submit 'Add Review'%>
+                </th>
+              <% end %>
+            <% end %>
+         </tbody>
+      </table>
     </div>
+  <% end %>
+  <br>
 
-<br>
-
-    <div class="panel panel-default items">
+  <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -61,7 +88,7 @@
             <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
           </td>
           <td>
-            <h4><%= item.rating.times do '⭐' end %></h4>
+            <h4><%= item.rating %></h4>
           </td>
           <td>
             <%= item.description %>

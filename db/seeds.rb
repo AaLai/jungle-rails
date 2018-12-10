@@ -206,5 +206,28 @@ Review.create!({
     rating: 5
 })
 
+puts "Reviews need some users..."
+
+User.create!({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: 'fdksa.ca',
+  password_digest: 'fdsajghaw'
+})
+
+User.create!({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: 'hbuioeagv.ca',
+  password_digest: 'ijhbotirwnig'
+})
+
+User.create!({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: 'jnthejb.ca',
+  password_digest: 'xfdwtycbufa'
+})
+
 
 puts "DONE!"
