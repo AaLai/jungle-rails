@@ -19,10 +19,6 @@ RSpec.describe User, type: :model do
       })
     end
 
-    after :each do
-      DatabaseCleaner.clean
-    end
-
     it 'is valid with all attributes' do
       expect(@user).to be_valid
     end
@@ -87,10 +83,6 @@ RSpec.describe User, type: :model do
         password: @password,
         password_confirmation: @password
       })
-    end
-
-    after :each do
-      DatabaseCleaner.clean
     end
 
     it 'should return nil if password and email are not in database' do
